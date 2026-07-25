@@ -143,21 +143,14 @@ The $97 first-year offer is designed to:
 - Build the initial user base.
 - Identify people who want a deeper role in developing the platform.
 
-## Tier 3 — Monthly SOS upgrade, dev community, and Farm Builders
+## Tier 3 — SOS Builder, Dev Community, and Farm Builders
 
-Tier 3 includes the monthly paid SOS upgrade and the co-building community around it.
-
-It is more than a software upgrade.
-
-Members receive:
-
-- Advanced SOS features.
-- Monthly product access at a future price to be determined.
-- Access to the development community.
-- A role in helping build and improve the app.
-- Opportunities to request or test custom workflow items.
-- Exposure to features created for other businesses that may also improve their own workflow.
-- Small-group leadership and Farm Builder progression.
+- Price: **$297 per month**.
+- Includes advanced SOS access.
+- Includes access to the development community.
+- Includes a **custom AI agent built around the member's onboarding automation or workflow**.
+- Includes opportunities to test custom workflow items and help shape reusable features for the wider product.
+- Includes small-group leadership and Farm Builder progression.
 
 Members who contribute useful product feedback, testing, workflow ideas, documentation, or reusable custom features should receive some form of payback or recognition.
 
@@ -209,7 +202,7 @@ Tier 3 also includes:
 - Farm Membership: $500/year, range 0–500, default 100.
 - Tier 2 Diagnostic: $497, range 0–500, default 50.
 - SOS founding-year users: $97 for the first year.
-- Tier 3 monthly SOS/dev-community upgrade: price TBD; do not invent a monthly price.
+- Tier 3 SOS Builder: $297/month, annualized at $3,564 when used in the calculator.
 - T1C agency-services revenue share: estimated $2,500/client, range 0–50, default 5.
 
 ## 250-Unit Layup preset
