@@ -13,7 +13,7 @@ function renderStage(){
   flowTree.innerHTML=s.nodes.map((n,i)=>`${i?'<div class="connector"></div>':''}<article class="node">
     <button class="node-trigger"><span class="node-icon">${icon(n.icon)}</span><span class="node-title"><strong>${n.title}</strong><span>${n.sub}</span></span><span class="chev">⌄</span></button>
     <div class="node-body"><p>${n.simple}</p>
-      ${n.beta?'<div class="beta-track"><div>Day 0<br>Baseline</div><div>Day 30<br>Use</div><div>Day 60<br>Install</div><div>Day 90<br>Proof</div></div><div class="beta-note"><strong>Important:</strong> This is a temporary validation workstream inside Tier 2. Tier 2 permanently contains the diagnostic and SOS.</div>':''}
+      ${n.beta?`<div class="beta-track">${(n.track||['Day 0<br>Baseline','Day 30<br>Use','Day 60<br>Install','Day 90<br>Proof']).map(step=>`<div>${step}</div>`).join('')}</div><div class="beta-note"><strong>Important:</strong> ${n.betaNote||'This is a validation workstream, not the permanent Tier 2 offer.'}</div>`:''}
       <div class="advanced"><ul>${n.bullets.map(b=>`<li>${b}</li>`).join('')}</ul><div class="meta-grid">
         <div class="meta team-only"><small>Success / dependency</small><div>${n.feeds}</div></div>
         <div class="meta"><small>Perry — 20%</small><div>${n.perry}</div></div>
@@ -32,10 +32,6 @@ function renderTimeline(){
 function renderRoles(){
   roleCards.innerHTML=roles.map(([stage,p,t])=>`<button class="info-card"><div class="card-head"><span class="card-icon">${icon('users')}</span><div><h3>${stage}</h3><p>20% authority / 80% execution</p></div></div><div class="card-detail"><div class="econ-row"><span>Perry 20%</span><b>${p}</b></div><div class="econ-row"><span>Team 80%</span><b>${t}</b></div></div></button>`).join('');
   roleCards.querySelectorAll('.info-card').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
-}
-function renderMonetization(){
-  monetizationCards.innerHTML=monetizationData.map(([title,ic,desc,pays,earns,cost,purpose])=>`<button class="info-card"><div class="card-head"><span class="card-icon">${icon(ic)}</span><div><h3>${title}</h3><p>${desc}</p></div></div><div class="card-detail"><div class="econ-row"><span>Who pays</span><b>${pays}</b></div><div class="econ-row"><span>Who earns</span><b>${earns}</b></div><div class="econ-row"><span>Cost profile</span><b>${cost}</b></div><div class="econ-row"><span>Strategic job</span><b>${purpose}</b></div></div></button>`).join('');
-  monetizationCards.querySelectorAll('.info-card').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
 }
 
 function openView(id){
@@ -67,20 +63,17 @@ nextStage.addEventListener('click',()=>{currentStage=Math.min(stages.length-1,cu
 exitPresent.addEventListener('click',()=>document.body.classList.remove('presenting'));
 
 const navDefs=[
-  ['ecosystem','spark','Ecosystem'],
-  ['pipeline','chart','Pipeline'],
+  ['ecosystem-breakdown','spark','Ecosystem'],
   ['timeline','calendar','Timeline'],
-  ['division','users','20 / 80'],
-  ['monetization','dollar','Revenue']
+  ['division','users','20 / 80']
 ];
 document.querySelectorAll('.navbtn').forEach((btn,i)=>{btn.innerHTML=icon(navDefs[i][1])+`<span>${navDefs[i][2]}</span>`});
-document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById(btn.dataset.go).scrollIntoView({behavior:'smooth'});setNav(btn)}));
+document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById(btn.dataset.go).scrollIntoView({behavior:'smooth'});openView('walkthrough');setNav(btn)}));
 document.querySelectorAll('[data-view-open]').forEach(btn=>btn.addEventListener('click',()=>{openView(btn.dataset.viewOpen);setNav(btn)}));
 function setNav(btn){document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
 
 const basePreset=document.getElementById('base250Preset');
 const netAfterFee=document.getElementById('netAfterFee');
-const pipelineContext=document.getElementById('pipelineContext');
 const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
 const inputs = {
   em:{el:document.getElementById('em'),out:emOut,price:297,label:'EM:Dirt'},
@@ -133,7 +126,6 @@ function calculate(){
   const total=rows.reduce((a,b)=>a+b.value,0);
   grossTotal.textContent=money(total);
   calculateTeamServices(total);
-  if(pipelineContext) pipelineContext.textContent=`Based on ${(+inputs.em.el.value).toLocaleString()} EM:Dirt buyers and the current downstream assumptions.`;
   netAfterFee.textContent=(total>=200000?'+':'−')+money(Math.abs(total-200000));
   netAfterFee.classList.toggle('positive',total>=200000);
   const pct=Math.min(100,total/200000*100);
@@ -146,4 +138,4 @@ function calculate(){
   const max=Math.max(...rows.map(r=>r.value),1);
   chart.innerHTML=rows.map(r=>`<div class="chart-row"><span class="chart-label">${r.label}</span><div class="chart-track"><div class="chart-bar" style="width:${r.value/max*100}%"></div></div><span class="chart-value">${money(r.value)}</span></div>`).join('');
 }
-renderStageTabs();renderStage();renderTimeline();renderRoles();renderMonetization();calculate();
+renderStageTabs();renderStage();renderTimeline();renderRoles();calculate();
