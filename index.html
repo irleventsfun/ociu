@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#090a11">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="The Farm — Perry Marshall Revenue Generation Department interactive pitch and revenue pipeline model.">
+<meta name="description" content="The Farm — Perry Marshall Revenue Generation Department interactive pitch and revenue model.">
 <title>The Farm | Revenue Generation Department</title>
 <link rel="stylesheet" href="farm.css">
 <link rel="stylesheet" href="farm-pipeline.css">
@@ -48,14 +48,13 @@
 
   <section id="ecosystem-breakdown" class="section">
     <div class="section-head">
-      <div><h2>Ecosystem Breakdown</h2><p>This is the map of the tiers: what each level does, who it serves, and what it feeds next. Tier 2 includes the 90-day T1A beta as one workstream—but its permanent products are the diagnostic and SOS.</p></div>
+      <div><h2>Ecosystem Breakdown</h2><p>This is the map of the phases and tiers: Phase 2 is the three-month Chicagoland search and EM:Dirt beta campaign. Tier 2 is the permanent diagnostic and SOS Business Operating System offer.</p></div>
       <span class="badge">Tap each node</span>
     </div>
     <div class="viewtabs">
       <button class="active" data-view="walkthrough">Tier Architecture</button>
       <button data-view="timeline">12-Month Timeline</button>
       <button data-view="division">20 / 80 Roles</button>
-      <button data-view="monetization">Content Monetization</button>
     </div>
 
     <div id="walkthrough" class="panel active">
@@ -73,20 +72,16 @@
         <h3>Every Stage Uses the Same Division of Labor</h3>
         <div class="big-split">
           <div class="p20"><h4>Perry — 20%</h4><ul><li>IP and authority</li><li>Anchor content</li><li>Selected interviews</li><li>Premium retreats</li><li>Final decisions</li></ul></div>
-          <div class="t80"><h4>The Team — 80%</h4><ul><li>Strategy, production, editing, and distribution</li><li>Funnels, data capture, community, sales, and follow-up</li><li>Beta operations, diagnostics, SOS, AI agents, and reporting</li><li>Events, partnerships, service fulfillment, and chapter expansion</li><li>Turning Perry’s ideas into a functioning operating system</li></ul></div>
+          <div class="t80"><h4>The Team — 80%</h4><ul><li>Strategy, production, editing, and distribution</li><li>Funnels, data capture, community, sales, and follow-up</li><li>Search campaign, beta operations, diagnostics, SOS, AI agents, and reporting</li><li>Events, partnerships, service fulfillment, and chapter expansion</li><li>Turning Perry’s ideas into a functioning operating system</li></ul></div>
         </div>
       </div>
       <div id="roleCards" class="cards" style="margin-top:10px"></div>
     </div>
-
-    <div id="monetization" class="panel">
-      <div id="monetizationCards" class="cards"></div>
-    </div>
   </section>
 
-  <section id="pipeline" class="section pipeline-section">
+  <section id="calculator" class="section pipeline-section">
     <div class="section-head">
-      <div><h2>Revenue Pipeline</h2><p>Move the sales sliders left or right to see the potential. Client View shows the upside without displaying our fee. Team View reveals the investment, fee coverage, and Chicago AMP / IRL service verticals.</p></div>
+      <div><h2>What Could This Produce?</h2><p>Move the sales sliders left or right to test the potential. Client View shows the upside without displaying our fee. Team View reveals the investment, coverage status, and Chicago AMP / IRL service verticals.</p></div>
       <span class="badge">Live potential</span>
     </div>
 
@@ -154,21 +149,22 @@
         <h3>Where the potential comes from</h3>
         <div id="chart" class="chart"></div>
       </div>
-      <div class="fine">Tier 3 annualizes $297/month across 12 months and includes the dev community plus a custom AI agent built for the member’s onboarding automation. Event-ticket revenue belongs to Perry. T1C uses the estimated Perry kickback—not total agency billings. These are gross illustrations, not guarantees, and they do not equal net income until fulfillment costs and splits are applied.</div>
+      <div class="fine">The top number is illustrative gross ecosystem revenue before fulfillment costs, refunds, processing, taxes, event costs, and negotiated splits. Tier 3 annualizes $297/month across 12 months and includes the dev community plus a custom AI agent built for the member’s onboarding automation. Event-ticket revenue belongs to Perry. T1C uses the estimated Perry kickback—not total agency billings.</div>
     </div>
   </section>
 </main>
 
 <nav class="bottomnav">
   <div class="bottomin">
-    <button class="navbtn active" data-go="ecosystem"></button>
-    <button class="navbtn" data-go="ecosystem-breakdown"></button>
-    <button class="navbtn" data-go="pipeline"></button>
+    <button class="navbtn active" data-go="ecosystem-breakdown"></button>
     <button class="navbtn" data-view-open="timeline"></button>
     <button class="navbtn" data-view-open="division"></button>
   </div>
 </nav>
-<div class="present-controls"><button id="prevStage">← Prev</button><span id="stageCounter">1 / 6</span><button id="nextStage">Next →</button><button id="exitPresent">Exit</button></div>
+
+<div class="present-controls">
+  <button id="prevStage">← Prev</button><span id="stageCounter">1 / 7</span><button id="nextStage">Next →</button><button id="exitPresent">Exit</button>
+</div>
 <script src="farm-icons.js"></script>
 <script src="farm-data.js"></script>
 <script src="farm-app.js"></script>
